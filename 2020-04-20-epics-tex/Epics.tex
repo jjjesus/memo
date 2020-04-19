@@ -24,15 +24,15 @@
 %	MEMO INFORMATION
 %------------------------------------------------------------------------------
 
-\memoto{Brian Batovsky, Lynne Townsend} % Recipient(s)
+\memoto{Jason Reeves} % Recipient(s)
 
-\memocc{Bartel Danjul, Mark Cheney, Mike Graf} % Recipient(s)
+\memocc{Brent Nemmers} % Recipient(s)
 
 \memofrom{John Jesus} % Sender(s)
 
-\memosubject{Replacing John Jesus on the CONCERTO program} % Memo subject
+\memosubject{Releases, Epics, and Stories in K3} % Memo subject
 
-\memodate{Wednesday, March 18, 2020} % Date, set to \today for automatically printing todays date
+\memodate{Monday, April 20, 2020} % Date, set to \today for automatically printing todays date
 
 %\logo{\includegraphics[width=0.3\textwidth]{logo_rgb.png}} % Institution logo at the top right of the memo, comment out this line for no logo
 
@@ -48,111 +48,7 @@
 
 \section*{Bottom Line Up Front}
 
-\emph{Mike Graf is uniquely the person who can replace John Jesus on the CONCERTO program}.
-
-Mike is very familiar with the CONCERTO software; many of the ideas that went into the software came from Mike, especially the handling of third-party software, the custom development and build environment, and the use of the PostgreSQL database.
-
-I have heard that Mike Graf is unavailable because he is needed to do Python programming on Microsoft Windows for the Maverick IRAD.
-I can't think of a worse fit for a particular engineer like Mike who can literally be characterized as a Linux and Modern C++ bigot and has never used Microsoft Windows or Python in his life before coming to L3.\footnote{Putting Mike Graf on a Windows/Python project is akin to putting Tom Brady, arguably the greatest quarterback of all time, on the offensive line; not a good fit at all.}
-
-I propose immediately moving Mike to CONCERTO and finding a replacement for his current duties by hiring a Windows or Python developer, which is much easier to find than someone like Mike who can do Linux system administration\footnote{I got a good Linux System Admin to interview at L3 during my first month, but, we dropped the ball on even making him an offer and L3 has yet to hire a Linux system administrator in the 18 months I've been here} and knows Modern C++ and Java and has experience and expertise with deploying software outside the company, with RPM and Makefiles, with virtual machines, and with managing third-party software and a PostgreSQL database.
-
-
-\section*{Background}
-
-\subsection*{L3 Software on the CONCERTO Program}
-
-L3 is delivering software during the performance of the CONCERTO program.  This decision was made surprisingly late during the contract execution because the letter of the contract listed as final deliverables only an \emph{Architecture} and \emph{Architecture Test Report}, but, it became very clear in December 2019, 6 months into the program, that all the other program performers were producing software on their contract and L3 needed to follow suit and have something to show by the next customer meeting at the end of January 2020 --- 6 weeks away.
-
-
-L3 had to produce software as fast as possible.  John Jesus and Bartel Danjul created a development plan and fitted themselves in roles.
-They also tried to empower Ed Dean and Patrick Piejak to contribute to the software, but, they proved to be at best either incapable or disinterested.\footnote{Both Bartel and John sat with each of them and walked them through a couple of Jira tickets. In the end, each of them simply wrote what we taught them into the Jira ticket text and then closed the tickets; it was strange and very disappointing.}
-The L3 Software was C++ on the service side and Java on GUI side.
-Bartel was criticized for using JavaFX for the GUI in CONCERTO, though \emph{it was I, John Jesus, who directed the use of JavaFX for the GUI}; I explain this decision in the next paragraph.
-
-\subsubsection*{L3 Software and the preeminence of Java in OMS software}
-
-CONCERTO is an Open Mission Systems (OMS) program, and, the foundation software of OMS is built on the Java language.
-The Java language is required simply to use the OMS tools; Java is used in the build of the messaging framework at the heart of OMS, the Goverment-Furnished Software (GFS) called the \emph{Critical Abstraction Layer} (CAL); moreover, the main messaging tool furnished by the Goverment called the \emph{GridTool} is also in Java.
-
-All of the Mission System GUIs that I know of are based on Java (in fact, Boeing, Raytheon, Northrup, and Lockheed all use the same \emph{Solipsys} GUI Toolkit, which is Java).
-
-
-The Geospatial (GIS) display system from the government is \emph{NASA Worldwind}, which is Java.  Given the short time frame, I did not think we would have time to purchase a C++ GIS system like \emph{ESRI}, so, the moving map GUI component was based on Java.
-
-
-The software that L3 needed to develop required a high-performance GUI to display all of the messaging data, and, an older windowing GUI toolkit like Qt or WxWidgets would not fit the scenegraph/frame paradigm that is required.  \emph{JavaFX} is the best framework for this kind of GUI.
-In C++, maybe only a gaming API like Unreal Engine would be able to match the performance, but, it would be much harder to develop.
-
-The use of JavaFX for creating the Inspector GUIs which gave them a video game-like look-and-feel.
-Our CONCERTO partners Perspecta and Northrup Grumman and future customer AFRL were excited to have these GUIs because no GUI of this caliber has ever been seen on an OMS program and these have really been the talk of DARPA and AFRL; our DARPA customer states that  \textbf{these JavaFX GUIs have considerably raised the bar for the program}.
-Program manager Dan Javorsek stated at the last Quarterly Program Review that these GUIs changed the program outlook from that of a trouble spot within DARPA to an exemplar.
-
-
-\subsubsection*{Modern C++ in L3 Software for the CONCERTO Program}
-The L3 C++ software was designed and implemented by Bartel alone.
-He first built a microservice framework that borrows some dependency injection (DI) ideas from Spring.
-The software infrastructure uses DDS, the same high-speed messaging infrastructure used by L3 Unmanned Systems and already planned for CONCERTO in the next version of the OMS CAL; Bartel designed for sophisticated networking, straight-forward development and deployment, and extremely high-performance.
-
-One of the \emph{many}\footnote{The microservices architecture and design by Bartel is extraordinary and ought to be studied and adopted by other software engineers and architects at L3.} prescient decisions by Bartel was to use the DI class loader to quickly reconfigure fundamental software behavior without changing source code.
-\textbf{The flexibility of Bartel's design allowed the L3 software to be reconfigured quickly among the multiple roles} required during integration with CONCERTO partner Perspecta in February 2020.
-The same software was used to provide Mission Controller (MC), Payload Emulator, SSRM Emulator, sometimes all the roles concurrently, and, we adjusted messages sequences or removed messages not yet supported, all of this by only adjusting XML configuration files.
-
-
-
-\subsubsection*{L3 Software requires deployment and integration with CONCERTO partners}
-As mentioned \emph{supra}, one requirement of the program is that L3 must deploy and integrate its software with our CONCERTO partners in non-L3 facilities.\footnote{I believe that L3 telling Perspecta that they must bring their software into the L3 Plano FOUO Lab, which is far inferior to their integration facilities, especially because Perspecta is the main focus of this phase of the program and L3 is supposed to be providing an RF payload that it is not even close to delivering --- is mistaken hubris and not even close ever to happen, particularly not over the next few months.}
-When John and Bartel traveled to do integration at Perspecta Labs in February 2020, they provided a Virtual Box virtual machine with all of the required third-party software as a platform and the application was delivered as a tarball.
-Later drops are planned to be Centos (Red Hat) RPMs that can be deployed on any platform, virtual or not.
-
-\subsection*{Role of John Jesus on the CONCERTO Program}
-
-One can easily assume that because Bartel Danjul single-handedly designed the software architecture and implemented the software solution that maybe we do not need to replace John Jesus on the CONCERTO program at all.\\
-
-\centerline{\emph{Do we really need to replace John Jesus on the CONCERTO program?}}
-
-\noindent
-Enumerating John's roles in the next few sections ought to help answer that that question.
-
-\subsubsection*{Linux development environment}
-John maintains the Linux development environment.  The requirement is that software must be buildable when working from home or when traveling to a partner or customer site without connection to the L3 Corporate network.  Bartel has a Hyper-V Virtual Machine running CentOS 7 (free Red Hat equivalent) with special networking and SSH Tunnel configurations to work securely in various network environments and this Virtual Machine requires continual careful system administration, for example,
-
-
-\subsubsection*{CAL-X Government-Furnished Software}
-The OMS CAL software source code is a huge government-furnished software base of over 500,000 files\footnote{The 500,000 source files of the OMS CAL is about 10 times the size of the source code of the entire Linux operating system} in a single Git repository.  John is a member of the CAL Working Group within CONCERTO and manages the building and distribution of this software on the program.  Building the software requires extensive knowledge of Git, third-party software in Java and C++, Linux system administration and the GNU \emph{autoconf} toolchain.
-
-
-\subsubsection*{Packaging and deployment for outside entities}
-John does all the packaging and deployment of the software; the artifacts must be delivered into CONCERTO partners and customer environments outside of L3.  Producing the artifacts has required development of makefiles, bash scripts, and other software to produce the many artifacts of CONCERTO: the virtual machines, microservice software, third-party software, GUI software.  Software artifacts are planned for delivery as RPMs.  More work is required in this area.
-
-\subsubsection*{Sophisticated Networking}
-The OMS software requires sophisticated newtorking, and John designed configurations to support SSH Tunneling, multicast, and TCP/IP tuning.  More work is required in this area to support Docker and deploying the new DDS-based CAL-X in partner and customer environments.
-
-\subsubsection*{PostgreSQL and PostGIS Database design and management}
-The L3 Software is required to integrated with the PostgreSQL database with Geospatial extensions (PostGIS).  John has been provided the Database Administration (DBA) and managed the extensive third-party math and geospatial source code required for PostGIS.
-
-\subsubsection*{AFSIM and DIS Protocol}
-The L3 Software works with AFSIM and the DIS protocol.  John setup and configured AFSIM to stream the DIS output and the OpenDIS third-party software to connect the DIS output to the L3 Software.
-
-
-\subsubsection*{Java and C++ builds}
-The L3 Software has both Java and C++ source code.  John setup and manages the build and deployment toolchain for both languages.
-
-\subsection*{Replacing John Jesus on the CONCERTO Program}
-Given the list enumerated above, the replacement for John Jesus on the CONCERTO program would need these skills:
-
-\begin{enumerate}
-    \item Networking (IP, Virtual Machine, Docker, Multicast)
-    \item PostgreSQL database administration and design
-    \item C++ and Java development
-    \item Service-oriented Architecture and Microservices and Geospatial software
-    \item Modern architectures and designs like class loaders and dependency injection
-    \item Git, especially large mono-repos with third-party software
-    \item Technical interface with partners and customer in working groups
-    \item Linux System Administration
-    \item Software packaging and deployment using RPM, Makefiles, GNU autoconf
-\end{enumerate}
-
+\emph{Communicate K3 software development plans and progress using \emph{Releases} and \emph{Epics} instead of using only \emph{Stories}.}
 
 %------------------------------------------------------------------------------
 
