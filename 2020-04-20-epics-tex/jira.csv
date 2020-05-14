@@ -1,0 +1,75 @@
+Issue Type,Custom field (Epic Name),Issue key,Issue id,Parent id,Summary,Status,Resolution
+Story,,KSW-1,48012,,Generalize the SBC boot sequence,Done,Done
+Story,,KSW-2,48166,,Run K2 regression tests on Felix,Done,Done
+Story,,KSW-3,48167,,Selectively include/build K3 SW projects on a .so basis,Done,Done
+Story,,KSW-4,48175,,Verify that the 7672 boots after making the code changes.,In Progress,
+Story,,KSW-5,48177,,Verify that the 7672 still boots and the 7674 also boots after making any addition code changes.,In Progress,
+Story,,KSW-6,48182,,"As a developer, I want to reconfigure all Felix SBCs to get to the current Red Hawk and latest Funnel Cake patch release so that I have solid baseline for future development/regression testing.",Done,Done
+Story,,KSW-7,48186,,Configure Felix for use with regression testing,Done,Done
+Task,,KSW-8,48187,,"Double-check that the router daughter card is not on the Felix switch (and if it is, have it removed).",Done,Done
+Story,,KSW-9,49079,,Update k3_sf2_software project to support SHT35,In Progress,
+Story,,KSW-10,50345,,[ABEU_BOOT] Umbrella:  Networked Node Boot change (all ABEUs and SCU slot 1 processor),In Progress,
+Story,,KSW-11,50352,,[ABEU_BOOT] Tactical mode - networked node,In Progress,
+Story,,KSW-12,50353,,[ABEU_BOOT] Tactical mode - SCU slot 0 processor,In Progress,
+Story,,KSW-13,50354,,[ABEU_BOOT] UDP library Configured as server,Done,Done
+Story,,KSW-14,50355,,[ABEU_BOOT] UDP library Configured as client,In Review,
+Story,,KSW-15,51417,,Disable pushing down of scripts to the SCU,In Progress,
+Story,,KSW-16,51420,,Disable Secure Shell (SSH),In Progress,
+Story,,KSW-17,51422,,Configure the lab machines in MC039 to enable work to be performed in that environment.,In Progress,
+Story,,KSW-18,51424,,Prepare the lab for the inclusion of the String Test Set.,In Progress,
+Story,,KSW-19,51425,,"Setup the air-cooled chassis, Wilma, in MC039.",In Progress,
+Sub-task,,KSW-20,51426,51425,Setup in a K2 configuration as a baseline.,In Progress,
+Sub-task,,KSW-21,51429,51425,Setup in a 7674 configuration.,In Progress,
+Sub-task,,KSW-22,51430,51425,Setup in a 7674 with XMC.,In Progress,
+Story,,KSW-23,51628,,Move the Util scripts onto the SCU SBC,Blocked,
+Story,,KSW-24,51631,,Disable the uploading of the old scripts,Done,Done
+Story,,KSW-25,51634,,[SSD_AUTH] SSD Zeroisation and re-imaging ,In Progress,
+Story,,KSW-26,54059,,Pathfinding: Determine log file Jira stories,Done,Done
+Story,,KSW-27,54075,,Create Jenkins job to execute Unit Tests,Done,Done
+Story,,KSW-28,54076,,Path finding for hard drive Zeroization,Done,Done
+Story,,KSW-29,54300,,Create ability to disable all logging,New,
+Story,,KSW-30,54301,,Create ability to disable logging of individual messages,New,
+Story,,KSW-31,54302,,Learn what logs are created and collect example logs from actual runs.,Done,Done
+Story,,KSW-32,54363,,Placeholder story for generating K3 Git transition tutorial/documentation.,New,
+Story,,KSW-33,54365,,Placeholder for UEFI story,New,
+Story,,KSW-34,54608,,Create a 7674 Coreboot Synergy project,Done,Done
+Story,,KSW-35,54709,,Document how to VLAN the SCU switch,Done,Done
+Story,,KSW-36,56491,,Understand how keys will work in K3 between radar and tactical/maint laptop,In Progress,
+Story,,KSW-37,56495,,Create a class so the radar can zeroize its drive at boot and run time,New,
+Story,,KSW-38,56622,,Use gcov and find a way to get regression test coverage,New,
+Story,,KSW-39,56708,,Migrate Synergy projects to Git repo,Done,Done
+Story,,KSW-40,56853,,Copy K3-database-specific Synergy projects to the product line Synergy database.,Done,Done
+Story,,KSW-41,56856,,Move completed tasks from K3 Synergy database to K2 sandbox/Git.,Done,Done
+Story,,KSW-42,56919,,Analyze the logs produced by the BallisticTrajectory project,Done,Done
+Story,,KSW-43,56920,,Analyze the logs produced by the C2_Comm project,Done,Done
+Story,,KSW-44,56921,,[LOGGING] Analyze the logs produced by the CoreSW_Linux project,Done,Done
+Story,,KSW-45,56922,,Analyze the logs produced by the INS_Proxy project,Done,Done
+Story,,KSW-46,56923,,[LOGGING] Analyze the logs produced by the MFRFS project,Done,Done
+Story,,KSW-47,56924,,[LOGGING] Analyze the logs produced by the MFRFS_Common project,Done,Done
+Story,,KSW-48,56925,,[LOGGING] Analyze the logs produced by the MFRFS_Health project,Done,Done
+Story,,KSW-49,56926,,[LOGGING] Analyze the logs produced by the NetworkSwitch_XCHANGE3013 project,Done,Done
+Story,,KSW-50,56927,,[LOGGING] Analyze the logs produced by the NeuralNetwork project,Done,Done
+Story,,KSW-51,57103,,Verify on SBC 7672 board that RedHawk OS can be booted out of USB,Done,Done
+Story,,KSW-52,57327,,How do I configure the switch from the serial port to set the VLAN in maintenance in the factory.,Blocked,
+Story,,KSW-53,57328,,Pathfinding:  Can you reprogram a SCIM from an ABEU?,Done,Done
+Story,,KSW-54,57353,,Determine what the logging approach with Systems/Modes,Blocked,
+Story,,KSW-55,57916,,[ABEU_BOOT] SCU needs to strip SCU-related boot map entries before sending the boot map to the ABEUs.,Done,Done
+Story,,KSW-56,58304,,Study/document Core exeCswBoot to understand the current boot processing to share with the rest of the team.,Done,Done
+Story,,KSW-57,58380,,Help Abram Nothnagle get up to speed on using RTSGE on an air-cooled chassis.,In Progress,
+Story,,KSW-58,58995,,[LOGGING] Create a tool to comb through regression test logs to validate that logging restrictions are effective.,New,
+Story,,KSW-59,59012,,"[LOGGING] Document whether logs used for troubleshooting fall into tactical, engineering, and/or wireless categories.",New,
+Story,,KSW-60,59749,,Characterize switch behavior with Xeon-D held in reset.,New,
+Story,,KSW-61,59750,,Placeholder:  Update panels software as needed.,New,
+Story,,KSW-62,60107,,Jose to work with Hannah on C2_Comm unit test commenting.,Done,Done
+Story,,KSW-63,60109,,Help configure desktop for VPN connections for remote users.,Done,Done
+Story,,KSW-64,63082,,Test new OS image with new 7674 Extreme Linux drivers on Xpedite7674,New,
+Story,,KSW-65,63778,,Create a UDP interface that receives commands and replies with a status,In Progress,
+Story,,KSW-66,64123,,[BUFFER] Placeholder story to absorb pop-up stories during the sprint.,New,
+Story,,KSW-67,64127,,[ABEU BOOT 2] UDP Client/Server,New,
+Story,,KSW-68,64128,,[ABEU BOOT 2] ABEU Request for its Load on AirCooled,In Progress,
+Story,,KSW-69,64129,,[ABEU BOOT 2] SBC0 to SCIM Config Data request,In Progress,
+Story,,KSW-70,64130,,[ABEU BOOT 2] TRUI to SCU SBC0 ssh setup,New,
+Story,,KSW-71,64131,,[ABEU BOOT 2] SSD Drive Management,New,
+Story,,KSW-72,64132,,SSD recovery after writing bad key then good key,In Progress,
+Story,,KSW-73,66306,,[ABEU BOOT 2] ABEU Request for its Load on String,New,
+Story,,KSW-74,66816,,Install and configure two additional landing machines to support WFH,In Progress,

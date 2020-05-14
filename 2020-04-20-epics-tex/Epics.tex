@@ -19,9 +19,12 @@
 
 \usepackage{parskip} % Adds spacing between paragraphs
 \setlength{\parindent}{15pt} % Indent paragraphs
+\usepackage{enumitem} % list enumeration
+\usepackage{hyperref} % hyperlinks
+\usepackage{graphicx} % scale table
 
 %------------------------------------------------------------------------------
-%	MEMO INFORMATION
+% MEMO INFORMATION
 %------------------------------------------------------------------------------
 
 \memoto{Jason Reeves} % Recipient(s)
@@ -32,9 +35,9 @@
 
 \memosubject{Releases, Epics, and Stories in K3} % Memo subject
 
-\memodate{Monday, April 20, 2020} % Date, set to \today for automatically printing todays date
+\memodate{Tuesday, April 21, 2020} % Date, set to \today for automatically printing todays date
 
-%\logo{\includegraphics[width=0.3\textwidth]{logo_rgb.png}} % Institution logo at the top right of the memo, comment out this line for no logo
+\logo{\includegraphics[width=0.3\textwidth]{rt_md_logo_red.png}} % Institution logo at the top right of the memo, comment out this line for no logo
 
 %------------------------------------------------------------------------------
 
@@ -43,49 +46,273 @@
 \maketitle % Print the memo header information
 
 %------------------------------------------------------------------------------
-%	MEMO CONTENT
+% MEMO CONTENT
 %------------------------------------------------------------------------------
 
 \section*{Bottom Line Up Front}
 
-\emph{Communicate K3 software development plans and progress using \emph{Releases} and \emph{Epics} instead of using only \emph{Stories}.}
+\emph{Communicate K3 software development plans and progress using \emph{Releases} and \emph{Epics} instead of using only \emph{Sprints and Stories}.}
+
+\subsection*{Example for K3 Release}
+
+I am guessing at the release name, date, and, the feature list based on looking at what's in the \emph{KSW} Jira backlog, but, here's an example for a supposed K3 software release.
+
+\textbf{Release K3 1.0 --- July 1, 2020 --- Feature (Epic) List}
+\begin{itemize}
+[noitemsep]
+\item X-ES Xpedite 7674 Board Support
+\item Disable ssh access to radar
+\item Change SSD encryption scheme
+\item Change ABEU Boot
+\item VLAN networking
+\item Filtered logging
+\item New software packaging for K3
+\item Stand up integration lab environment for K3
+\end{itemize}
+
+The Sprint and Story information is something that only the Sprinting Team uses; not exposing Sprints and Stories is a way to protect the team's Agile ability. External stakeholders like the Customer, Program Office, and others, see only the Release and the Epics, as above
+
+%Part of our Agile planning is coming up with a list of Stories that are required to fulfill each Feature/Epic.  We divide up the calendar into Sprint Intervals leading to the release date, and, we make a first-pass at distributing the Stories into each Sprint; we may find right away that our initial commitment of Features is too much, or, that some Epics are missing.
+%------------------------------------------------------------------------------
+
+\newpage
+\section*{Background}
+\subsection*{Using Releases and Epics at Raytheon IIS}
+
+I inherited what I found to be a good Agile process at Raytheon IIS and found that communicating with external stakeholders (Customer, Program Office, and others) using Release and Epics instead of only Stories was useful and allowed the Sprinting team to protect its Agile ability.
+
+\subsubsection*{Releases are calendar-based}
+We had a release every 9-months and the content for each release was part of the contract. Each Release contained 8-10 \emph{Features}.  Here is what I remember about one of the releases (scrubbed to be unclassified):
+
+\textbf{Release 9.5 --- July 1, 2018}
+\begin{itemize}
+[noitemsep]
+\item Cloud Cover Percentage tag on videos
+\item Support for new file format 1
+\item Support for new file format 2
+\item Support for new file format 3
+\item Support for new data provider 1
+\item Support for new data provider 2
+\item Support for new data provider 3
+\item OS Upgrade
+\item New quarterly traffic reports and metrics
+\end{itemize}
+
+\subsection*{Features stored in Jira as \emph{Epics}}
+
+The release content was specified as \emph{Features} and we stored them in Jira as \emph{Epics}.
+In other words, \emph{Epics are the Features delivered in a Release}.
+
+\subsubsection*{Epics in Atlassian Jira}
+Atlassian describes Epics on this web page: \href{https://www.atlassian.com/agile/project-management/epics}{Atlassian web page}. Helpful excerpt:
+
+\begin{quote}
+Epics are almost always delivered over a set of sprints. As a team learns more about an epic through development and customer feedback, user stories will be added and removed as necessary. That’s the key with agile epics: Scope is flexible, based on customer feedback and team cadence.
+\end{quote}
+
+Communicating with external stakeholders through Epics allows the development team to stay agile through adding and removing stories for each Epic as necessary.  The development team can report Progress, Estimate-To-Completion (ETC), and Estimate-At-Completion (EAC) against an Epic by deriving it from the Story Point information in Jira, but, Stories are not communicated to the customer or outside the group/sprint team.
+
+\subsection*{Additional note: Last interval before Release}
+One additional note is that the last 3-week interval before release is an Integration period. During this period, no Stories are planned.  Instead, the team goes into a Kanban mode (that is, creating a task list each day and working only on those tasks) among these activities:
+
+\textbf{Integration Period Activities}
+\begin{itemize}
+[noitemsep]
+\item Merging
+\item Integration testing
+\item Bug fixes
+\item Documents
+\item Reviews and release procedures
+\item Packaging
+\end{itemize}
+
+%------------------------------------------------------------------------------
+
+\newpage
+\section*{Sample plan for K3 Software Release 1.0}
+
+\subsection*{Release and Epic Information}
+I am guessing at the release name, date, and, the feature list based on looking at what's in the \emph{KSW} Jira backlog, but, here's an example for a supposed K3 software release.
+
+\textbf{Release K3 1.0 --- July 1, 2020 --- Feature (Epic) List}
+\begin{itemize}
+[noitemsep]
+\item X-ES Xpedite 7674 Board Support
+\item Disable ssh access to radar
+\item Change SSD encryption scheme
+\item Change ABEU Boot
+\item VLAN networking
+\item Filtered logging
+\item New software packaging for K3
+\item Stand up integration lab environment for K3
+\end{itemize}
 
 
 
+\subsection*{Stories in Epics}
+I tried to group Jira Stories into Epics and came up with the following pages:
 
-%Epics
+\textbf{X-ES Xpedite 7674 Board Support}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-1  & Generalize the SBC boot sequence                                                                             & Done        \\
+KSW-4  & Verify that the 7672 boots after making the code changes.                                                    & In Progress \\
+KSW-5  & Verify that the 7672 still boots and the 7674 also boots after making any addition code changes.             & In Progress \\
+KSW-9  & Update k3\_sf2\_software project to support SHT35                                                            & In Progress \\
+KSW-33 & Placeholder for UEFI story                                                                                   & New         \\
+KSW-34 & Create a 7674 Coreboot Synergy project                                                                       & Done        \\
+KSW-51 & Verify on SBC 7672 board that RedHawk OS can be booted out of USB                                            & Done        \\
+KSW-56 & Study/document Core exeCswBoot to understand the current boot processing to share with the rest of the team. & Done        \\
+KSW-64 & Test new OS image with new 7674 Extreme Linux drivers on Xpedite7674                                         & New
+\end{tabular}%
+}
+\end{table}
 
-%BLUF
-%Communicate K3 software development plans and progress using Releases and Epics instead of using only Stories.
 
-%My experience in IIS
-%1 Release every 18 months
-%Release contained 8-10 Features
-%Feature is specified as an Epic
-%Example
-%Release 9.5
-%Cloud Cover Pct on videos
-%File formats
-%Data providers
-%OS upgrade
-%Quarterly traffic report
-%Last 3-week interval before release is an Integration period
-%No stories
-%Merging
-%Integration testing
-%Bug fixes
-%Documents
-%Reviews and release procedures
-%Packaging
-%Releases are calendar-based
-%Epics are features delivered in a Release
-%Atlassian documents
-%https://www.atlassian.com/agile/project-management/epics
+\textbf{Disable ssh access to radar}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-15 & Disable pushing down of scripts to the SCU                                  & In Progress \\
+KSW-16 & Disable Secure Shell (SSH)                                                  & In Progress \\
+KSW-23 & Move the Util scripts onto the SCU SBC                                      & Blocked     \\
+KSW-24 & Disable the uploading of the old scripts                                    & Done        \\
+KSW-36 & Understand how keys will work in K3 between radar and tactical/maint laptop & In Progress
+\end{tabular}%
+}
+\end{table}
+
 %
-%Epics are almost always delivered over a set of sprints. As a team learns more about an epic through development and customer feedback, user stories will be added and removed as necessary. That’s the key with agile epics: Scope is flexible, based on customer feedback and team cadence.
+\textbf{Change SSD encryption scheme}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-25 & {[}SSD\_AUTH{]} SSD Zeroisation and re-imaging                         & In Progress \\
+KSW-28 & Path finding for hard drive Zeroization                                & Done        \\
+KSW-37 & Create a class so the radar can zeroize its drive at boot and run time & New         \\
+KSW-72 & SSD recovery after writing bad key then good key                       & In Progress
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+\textbf{Change ABEU Boot}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-10 & Umbrella: Networked Node Boot change (all ABEUs and SCU slot 1 processor) & In Progress \\
+KSW-11 & Tactical mode - networked node & In Progress  \\
+KSW-12 & Tactical mode - SCU slot 0 processor & In Progress \\
+KSW-13 & UDP library Configured as server & Done \\
+KSW-14 & UDP library Configured as client & In Review \\
+KSW-53 & Pathfinding: Can you reprogram a SCIM from an ABEU? & Done \\
+KSW-55 & SCU needs to strip SCU-related boot map entries before sending the boot map to the ABEUs. & Done \\
+KSW-65 & Create a UDP interface that receives commands and replies with a status & In Progress \\
+KSW-67 & UDP Client/Server & New \\
+KSW-68 & ABEU Request for its Load on AirCooled & In Progress \\
+KSW-69 & SBC0 to SCIM Config Data request & In Progress \\
+KSW-70 & TRUI to SCU SBC0 ssh setup & New \\
+KSW-71 & SSD Drive Management & New \\
+KSW-73 & ABEU Request for its Load on String & New
+\end{tabular}%
+}
+\end{table}
+
+\textbf{VLAN networking}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-35 & Document how to VLAN the SCU switch & Done \\
+KSW-52 & How do I configure the switch from the serial port to set the VLAN in maintenance in the factory. & Blocked \\
+KSW-60 & Characterize switch behavior with Xeon-D held in reset. & New
+\end{tabular}%
+}
+\end{table}
 %
-%Releases and epics are communicated outside the group/sprint team
-%Stories are not communicated to the customer or outside the group/sprint team
+\newpage
+\textbf{Filtered logging}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-26 & Pathfinding: Determine log file Jira stories                                                                              & Done    \\
+KSW-29 & Create ability to disable all logging                                                                                     & New     \\
+KSW-30 & Create ability to disable logging of individual messages                                                                  & New     \\
+KSW-31 & Learn what logs are created and collect example logs from actual runs.                                                    & Done    \\
+KSW-42 & Analyze the logs produced by the BallisticTrajectory project                                                              & Done    \\
+KSW-43 & Analyze the logs produced by the C2\_Comm project                                                                         & Done    \\
+KSW-44 & {[}LOGGING{]} Analyze the logs produced by the CoreSW\_Linux project                                                      & Done    \\
+KSW-45 & Analyze the logs produced by the INS\_Proxy project                                                                       & Done    \\
+KSW-46 & {[}LOGGING{]} Analyze the logs produced by the MFRFS project                                                              & Done    \\
+KSW-47 & {[}LOGGING{]} Analyze the logs produced by the MFRFS\_Common project                                                      & Done    \\
+KSW-48 & {[}LOGGING{]} Analyze the logs produced by the MFRFS\_Health project                                                      & Done    \\
+KSW-49 & {[}LOGGING{]} Analyze the logs produced by the NetworkSwitch\_XCHANGE3013 project                                         & Done    \\
+KSW-50 & {[}LOGGING{]} Analyze the logs produced by the NeuralNetwork project                                                      & Done    \\
+KSW-54 & Determine what the logging approach with Systems/Modes                                                                    & Blocked \\
+KSW-58 & {[}LOGGING{]} Create a tool to comb through regression test logs to validate that logging restrictions are effective.     & New     \\
+KSW-59 & {[}LOGGING{]} Document whether logs used for troubleshooting fall into tactical, engineering, and/or wireless categories. & New
+\end{tabular}%
+}
+\end{table}
+%
+\newpage
+\textbf{New software packaging for K3}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-3 & Selectively include/build K3 SW projects on a .so basis & Done \\
+KSW-27 & Create Jenkins job to execute Unit Tests & Done \\
+KSW-32 & Placeholder story for generating K3 Git transition tutorial/documentation. & New \\
+KSW-38 & Use gcov and find a way to get regression test coverage & New \\
+KSW-39 & Migrate Synergy projects to Git repo & Done \\
+KSW-40 & Copy K3-database-specific Synergy projects to the product line Synergy database. & Done \\
+KSW-41 & Move completed tasks from K3 Synergy database to K2 sandbox/Git. & Done
+\end{tabular}%
+}
+\end{table}
+
+
+\textbf{Stand up integration lab environment for K3}
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{1in}p{6in}p{1in}}
+KSW-2 & Run K2 regression tests on Felix & Done \\
+KSW-6 & As a developer, I want to reconfigure all Felix SBCs to get to the current Red Hawk and latest Funnel Cake patch release so that I have solid baseline for future development/regression testing. & Done \\
+KSW-7 & Configure Felix for use with regression testing & Done \\
+KSW-8 & Double-check that the router daughter card is not on the Felix switch (and if it is, have it removed). & Done \\
+KSW-17 & Configure the lab machines in MC039 to enable work to be performed in that environment. & In Progress \\
+KSW-18 & Prepare the lab for the inclusion of the String Test Set. & In Progress \\
+KSW-19 & Setup the air-cooled chassis, Wilma, in MC039. & In Progress \\
+KSW-20 & Setup in a K2 configuration as a baseline. & In Progress \\
+KSW-21 & Setup in a 7674 configuration. & In Progress \\
+KSW-22 & Setup in a 7674 with XMC. & In Progress \\
+KSW-57 & Help Abram Nothnagle get up to speed on using RTSGE on an air-cooled chassis. & In Progress \\
+KSW-63 & Help configure desktop for VPN connections for remote users. & Done \\
+KSW-74 & Install and configure two additional landing machines to support WFH & In Progress
+\end{tabular}%
+}
+\end{table}
+
+
+\subsection*{How to set this up in Jira}
+
+Do these items immediately:
+
+\begin{itemize}
+[noitemsep]
+\item Figure out a Release date; I think it's tied to Gelato.
+\item Create the Epic list for the Release. Probably want Rob for this one.
+\item Figure out how many Sprints we have until the Release date.  Try to leave room for a 3-week integration period immediately preceding the Release.
+\end{itemize}
+
+\noindent Do these items at or before the next Sprint Planning:
+
+\begin{itemize}
+[noitemsep]
+\item Pick the Epics we want to attack in the Sprint.
+\item Get the Story list right for each Epic for the Sprint.
+\item After the Story list is done, estimate the Story points
+\end{itemize}
 
 %------------------------------------------------------------------------------
 
